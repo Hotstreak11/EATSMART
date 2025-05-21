@@ -12,6 +12,7 @@
         /* Estilos consistentes con el sitio principal */
         body {
             font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background-color: #f8f9fa;
         }
         
         .navbar-logo {
@@ -22,9 +23,12 @@
             transform: scale(1.1);
         }
         
+        /* Sección Hero */
         .hero-section {
             background: linear-gradient(135deg, #28a745, #218838);
             color: white;
+            padding: 4rem 0;
+            margin-bottom: 2rem;
         }
         
         /* Estilos específicos para la página de producto */
@@ -32,23 +36,18 @@
             transition: all 0.3s ease;
             border: none;
             border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
         }
         .product-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-        }
-        
-        #producto-imagen {
-            max-height: 300px;
-            object-fit: contain;
-            margin: 0 auto;
-            display: block;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
         }
         
         .calculator {
-            background-color: #f8f9fa;
+            background-color: white;
             border-radius: 15px;
-            padding: 20px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
             height: 100%;
         }
         
@@ -60,27 +59,58 @@
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
         
-        /* Responsive adjustments */
-        @media (max-width: 992px) {
-            #producto-imagen {
-                max-width: 100%;
-                margin-bottom: 2rem;
-            }
-            
-            .calculator {
-                margin-top: 2rem;
-            }
+        .maturity-section {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid #eee;
         }
         
-        @media (min-width: 992px) {
-            #producto-imagen {
-                max-width: 500px;
+        .maturity-image-container {
+            max-width: 100%;
+            margin: 0 auto;
+        }
+        
+        .maturity-image {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            margin-bottom: 15px;
+        }
+        
+        .color-scale-image {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        
+        .image-caption {
+            text-align: center;
+            font-size: 0.9rem;
+            color: #6c757d;
+            margin-top: 5px;
+            margin-bottom: 20px;
+        }
+        
+        .info-icon {
+            font-size: 1.5rem;
+            color: #28a745;
+            margin-right: 15px;
+        }
+        
+        .info-item {
+            margin-bottom: 20px;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 992px) {
+            .calculator {
+                margin-top: 2rem;
             }
         }
     </style>
 </head>
 
-<body class="d-flex flex-column min-vh-100 bg-light">
+<body class="d-flex flex-column min-vh-100">
     <!-- Barra de navegación consistente -->
     <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
         <div class="container-fluid px-4 px-lg-5">
@@ -95,78 +125,106 @@
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
                     <li class="nav-item"><a class="nav-link" href="etiqueta.html">Etiqueta</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="quienesSomos.html">Quiénes Somos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="quienesSomos.html">Quiénes Somos</a></li>
                     <li class="nav-item"><a class="nav-link" href="calculadora.html">Calculadora</a></li>
                 </ul>
             </div>
         </div>
     </nav>
 
+    <!-- Sección Hero -->
+    <section class="hero-section">
+        <div class="container text-center">
+            <h1 class="display-5 fw-bold mb-3" id="producto-titulo"></h1>
+            <p class="lead">Información nutricional y estado de madurez</p>
+        </div>
+    </section>
+
     <!-- Contenido principal -->
-    <main class="flex-grow-1 py-5">
-        <div class="container">
-            <div class="row">
-                <!-- Columna de imagen e información del producto -->
-                <div class="col-lg-6 mb-4 mb-lg-0">
-                    <div class="text-center text-lg-start">
-                        <img id="producto-imagen" src="" class="img-fluid mb-4" alt="Imagen del producto">
-                    </div>
-                    
-                    <div class="product-card card shadow-sm mb-4">
-                        <div class="card-body">
-                            <h1 id="producto-nombre" class="h2 mb-4 text-success"></h1>
-                            
-                            <div class="d-flex align-items-center mb-3">
-                                <i class="bi bi-geo-alt-fill text-success fs-4 me-2"></i>
-                                <div>
-                                    <h3 class="h5 mb-1">Origen</h3>
-                                    <p id="producto-origen" class="mb-0 text-muted"></p>
-                                </div>
+    <main class="container my-4 flex-grow-1">
+        <div class="row">
+            <!-- Columna de información del producto -->
+            <div class="col-lg-6 mb-4 mb-lg-0">
+                <div class="product-card card mb-4">
+                    <div class="card-body">
+                        <h2 class="h3 mb-4 text-success" id="producto-nombre"></h2>
+                        
+                        <div class="d-flex info-item">
+                            <i class="bi bi-geo-alt-fill info-icon"></i>
+                            <div>
+                                <h3 class="h5 mb-1">Origen</h3>
+                                <p id="producto-origen" class="mb-0 text-muted"></p>
                             </div>
-                            
-                            <div class="d-flex align-items-center">
-                                <i class="bi bi-graph-up-arrow text-success fs-4 me-2"></i>
-                                <div>
-                                    <h3 class="h5 mb-1">Estado de Madurez</h3>
-                                    <p id="producto-madurez" class="mb-0 text-muted"></p>
-                                </div>
+                        </div>
+                        
+                        <div class="d-flex info-item">
+                            <i class="bi bi-graph-up-arrow info-icon"></i>
+                            <div>
+                                <h3 class="h5 mb-1">Estado de Madurez</h3>
+                                <p id="producto-madurez" class="mb-0 text-muted"></p>
+                            </div>
+                        </div>
+                        
+                        <div class="d-flex info-item">
+                            <i class="bi bi-heart-fill info-icon"></i>
+                            <div>
+                                <h3 class="h5 mb-1">Beneficios para la Salud</h3>
+                                <p id="producto-beneficios" class="mb-0 text-muted"></p>
                             </div>
                         </div>
                     </div>
                 </div>
                 
-                <!-- Columna de la calculadora -->
-                <div class="col-lg-6">
-                    <div class="calculator shadow-sm">
-                        <h2 class="h3 mb-4"><i class="bi bi-calculator text-success me-2"></i> Calculadora Nutricional</h2>
+                <!-- Sección de Estado de Madurez independiente -->
+                <div class="maturity-section">
+                    <h3 class="text-center mb-4"><i class="bi bi-arrow-down-up text-success"></i> Guía de Madurez</h3>
+                    
+                    <div class="maturity-image-container">
+                        <img id="maturity-image" src="" alt="Estado de madurez del producto" class="maturity-image">
+                        <p class="image-caption">Ejemplo del producto en su punto óptimo de madurez</p>
                         
-                        <div class="mb-3">
-                            <label for="peso" class="form-label">Peso (en kilogramos):</label>
-                            <div class="input-group">
-                                <input type="number" step="0.1" class="form-control" id="peso" value="1.0" min="0.1">
-                                <span class="input-group-text">kg</span>
-                            </div>
+                        <img id="maturity-scale-image" src="" alt="Escala de colores de madurez" class="color-scale-image">
+                        <p class="image-caption">Escala de referencia de madurez</p>
+                    </div>
+                    
+                    <p id="maturity-description" class="text-center mt-3 text-muted"></p>
+                </div>
+            </div>
+            
+            <!-- Columna de la calculadora -->
+            <div class="col-lg-6">
+                <div class="calculator">
+                    <h2 class="h3 mb-4"><i class="bi bi-calculator text-success me-2"></i> Calculadora Nutricional</h2>
+                    
+                    <div class="mb-4">
+                        <label for="peso" class="form-label">Cantidad (en kilogramos):</label>
+                        <div class="input-group">
+                            <input type="number" step="0.1" class="form-control" id="peso" value="1.0" min="0.1">
+                            <button onclick="calcularNutricion()" class="btn btn-success">
+                                <i class="bi bi-calculator"></i> Calcular
+                            </button>
                         </div>
-                        
-                        <button onclick="calcularNutricion()" class="btn btn-success btn-lg w-100 mb-4">
-                            <i class="bi bi-calculator"></i> Calcular Valores Nutricionales
-                        </button>
-                        
-                        <div class="nutricion-card card">
-                            <div class="card-header bg-success text-white">
-                                <h3 class="h5 mb-0"><i class="bi bi-nutrition me-2"></i> Valores Nutricionales</h3>
-                            </div>
-                            <div class="card-body">
-                                <div class="table-responsive">
-                                    <table class="table table-borderless mb-0">
-                                        <tbody id="valores-nutricionales">
-                                            <!-- Datos se cargarán aquí -->
-                                        </tbody>
-                                    </table>
-                                </div>
-                                <p class="text-muted small mb-0" id="fecha-actualizacion"></p>
-                            </div>
+                    </div>
+                    
+                    <div class="nutricion-card card mb-4">
+                        <div class="card-header bg-success text-white">
+                            <h3 class="h5 mb-0"><i class="bi bi-nutrition me-2"></i> Valores Nutricionales</h3>
                         </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-borderless mb-0">
+                                    <tbody id="valores-nutricionales">
+                                        <!-- Datos se cargarán aquí -->
+                                    </tbody>
+                                </table>
+                            </div>
+                            <p class="text-muted small mb-0 mt-2" id="fecha-actualizacion"></p>
+                        </div>
+                    </div>
+                    
+                    <div class="alert alert-success">
+                        <i class="bi bi-lightbulb-fill me-2"></i>
+                        <strong>Consejo:</strong> Los valores nutricionales pueden variar ligeramente según el grado de madurez y las condiciones de cultivo.
                     </div>
                 </div>
             </div>
@@ -190,9 +248,9 @@
         const productos = {
             manzana: {
                 nombre: "Manzana Fuji",
-                imagen: "Imagenes/Manzana.png",
                 origen: "Región de O'Higgins, Chile - Cultivo orgánico",
                 madurez: "Óptima para consumo (dulce y crujiente)",
+                beneficios: "Rica en antioxidantes y fibra. Ayuda a regular el azúcar en sangre y mejora la salud digestiva.",
                 nutricion: {
                     calorias: 52,       // por 100g
                     carbohidratos: 14,
@@ -200,15 +258,19 @@
                     grasas: 0.2,
                     fibra: 2.4,
                     azucar: 10.4,
-                    vitaminaC: 4.6
+                    vitaminaC: 4.6,
+                    potasio: 107
                 },
-                actualizacion: "2023-11-15"
+                actualizacion: "2023-11-15",
+                madurezImagen: "Imagenes/MadurezManzana.png",
+                escalaMadurez: "Imagenes/MadurezManza.png",
+                madurezDescripcion: "La manzana Fuji en su punto óptimo tiene un color rojo intenso con toques amarillos y una textura firme pero jugosa."
             },
             palta: {
                 nombre: "Palta Hass",
-                imagen: "Imagenes/Palta.png",
                 origen: "Región de Valparaíso, Chile",
                 madurez: "Listo para consumir (ligeramente blando al tacto)",
+                beneficios: "Alto contenido de grasas saludables. Fuente de vitamina E, mejora la salud cardiovascular y la absorción de nutrientes.",
                 nutricion: {
                     calorias: 160,
                     carbohidratos: 8.5,
@@ -216,9 +278,93 @@
                     grasas: 14.7,
                     fibra: 6.7,
                     azucar: 0.7,
-                    vitaminaC: 10
+                    vitaminaC: 10,
+                    potasio: 485
                 },
-                actualizacion: "2023-11-10"
+                actualizacion: "2023-11-10",
+                madurezImagen: "Imagenes/Palta.png",
+                escalaMadurez: "Imagenes/MadurezPalta.png",
+                madurezDescripcion: "La palta Hass madura tiene la piel de color negro oscuro y cede ligeramente a la presión suave."
+            },
+            platano: {
+                nombre: "Plátano",
+                origen: "Región del Maule, Chile",
+                madurez: "Piel amarilla con pequeñas manchas marrones (dulce y cremoso)",
+                beneficios: "Excelente fuente de potasio. Proporciona energía rápida, ayuda a regular la presión arterial y mejora la salud muscular.",
+                nutricion: {
+                    calorias: 89,
+                    carbohidratos: 22.8,
+                    proteinas: 1.1,
+                    grasas: 0.3,
+                    fibra: 2.6,
+                    azucar: 12.2,
+                    vitaminaC: 8.7,
+                    potasio: 358
+                },
+                actualizacion: "2023-11-18",
+                madurezImagen: "Imagenes/Platano.png",
+                escalaMadurez: "Imagenes/MadurezPlatano.png",
+                madurezDescripcion: "El plátano en su punto óptimo tiene cáscara amarilla con pequeñas manchas marrones y textura firme pero no dura."
+            },
+            pimenton: {
+                nombre: "Pimentón",
+                origen: "Región Metropolitana, Chile - Cultivo en invernadero",
+                madurez: "Color intenso y piel brillante (firme al tacto)",
+                beneficios: "Rico en vitamina C (más que las naranjas). Antioxidante poderoso, mejora la salud ocular y refuerza el sistema inmunológico.",
+                nutricion: {
+                    calorias: 31,
+                    carbohidratos: 6,
+                    proteinas: 1,
+                    grasas: 0.3,
+                    fibra: 2.1,
+                    azucar: 4.2,
+                    vitaminaC: 127.7,
+                    potasio: 211
+                },
+                actualizacion: "2023-11-12",
+                madurezImagen: "Imagenes/Pimenton.png",
+                escalaMadurez: "Imagenes/MadurezPimenton.png",
+                madurezDescripcion: "El pimentón maduro tiene un color intenso (rojo, amarillo o verde según variedad), piel brillante y textura firme."
+            },
+            pera: {
+                nombre: "Pera",
+                origen: "Región de O'Higgins, Chile",
+                madurez: "Cede ligeramente al presionar cerca del tallo (dulce y jugosa)",
+                beneficios: "Alto contenido de fibra soluble. Promueve la salud intestinal, ayuda a controlar el colesterol y es hidratante.",
+                nutricion: {
+                    calorias: 57,
+                    carbohidratos: 15,
+                    proteinas: 0.4,
+                    grasas: 0.1,
+                    fibra: 3.1,
+                    azucar: 10,
+                    vitaminaC: 4.3,
+                    potasio: 116
+                },
+                actualizacion: "2023-11-14",
+                madurezImagen: "Imagenes/Pera.png",
+                escalaMadurez: "Imagenes/MadurezPera.png",
+                madurezDescripcion: "La pera madura cede ligeramente al presionar cerca del tallo y tiene un aroma dulce característico."
+            },
+            tomate: {
+                nombre: "Tomate",
+                origen: "Región de Valparaíso, Chile - Cultivo hidropónico",
+                madurez: "Color rojo uniforme, firme pero cede ligeramente al tacto",
+                beneficios: "Rico en licopeno (antioxidante). Protege la piel, mejora la salud cardiovascular y tiene propiedades antiinflamatorias.",
+                nutricion: {
+                    calorias: 18,
+                    carbohidratos: 3.9,
+                    proteinas: 0.9,
+                    grasas: 0.2,
+                    fibra: 1.2,
+                    azucar: 2.6,
+                    vitaminaC: 13.7,
+                    potasio: 237
+                },
+                actualizacion: "2023-11-16",
+                madurezImagen: "Imagenes/Tomate.png",
+                escalaMadurez: "Imagenes/MadurezTomate.png",
+                madurezDescripcion: "El tomate maduro tiene un color rojo uniforme, piel lisa y cede ligeramente al tacto sin estar blando."
             }
         };
 
@@ -229,11 +375,17 @@
             const producto = productos[productoId];
             
             // Mostrar info básica
+            document.getElementById('producto-titulo').textContent = producto.nombre;
             document.getElementById('producto-nombre').textContent = producto.nombre;
-            document.getElementById('producto-imagen').src = producto.imagen;
             document.getElementById('producto-origen').textContent = producto.origen;
             document.getElementById('producto-madurez').textContent = producto.madurez;
+            document.getElementById('producto-beneficios').textContent = producto.beneficios;
             document.getElementById('fecha-actualizacion').textContent = `Actualizado: ${producto.actualizacion}`;
+            
+            // Mostrar imágenes de madurez
+            document.getElementById('maturity-image').src = producto.madurezImagen;
+            document.getElementById('maturity-scale-image').src = producto.escalaMadurez;
+            document.getElementById('maturity-description').textContent = producto.madurezDescripcion;
             
             // Calcular valores iniciales (para 1kg)
             calcularNutricion();
@@ -278,9 +430,16 @@
                     <th>Vitamina C</th>
                     <td>${(producto.nutricion.vitaminaC * factor).toFixed(1)}mg</td>
                 </tr>
+                <tr>
+                    <th>Potasio</th>
+                    <td>${(producto.nutricion.potasio * factor).toFixed(1)}mg</td>
+                </tr>
             `;
         }
 
+        // Calcular automáticamente al cambiar la cantidad
+        document.getElementById('peso').addEventListener('change', calcularNutricion);
+        
         // Inicializar
         document.addEventListener('DOMContentLoaded', cargarProducto);
     </script>
