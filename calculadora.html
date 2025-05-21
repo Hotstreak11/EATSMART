@@ -234,12 +234,12 @@
                 imagen: "Imagenes/Manzana.png",
                 origen: "Región de O'Higgins, Chile",
                 nutricion: {
-                    calorias: 52,       // por 100g
-                    carbohidratos: 14,
-                    proteinas: 0.3,
+                    energía: 59,       // por 100g
+                    carbohidratos: 15.2,
+                    proteinas: 0.2,
                     grasas: 0.2,
                     fibra: 2.4,
-                    azucar: 10.4,
+                    lipidos: 0.4,
                     vitaminaC: 4.6
                 },
                 madurezImagen: "Imagenes/Madurez, Manzana.png",
@@ -251,12 +251,12 @@
                 <!-- imagen: "Imagenes/Palta.png", -->
                 <!-- origen: "Región de Valparaíso, Chile", -->
                 <!-- nutricion: { -->
-                    <!-- calorias: 160, -->
+                    <!-- energía: 160, -->
                     <!-- carbohidratos: 8.5, -->
                     <!-- proteinas: 2, -->
                     <!-- grasas: 14.7, -->
                     <!-- fibra: 6.7, -->
-                    <!-- azucar: 0.7, -->
+                    <!-- lipidos: 0.7, -->
                     <!-- vitaminaC: 10 -->
                 <!-- }, -->
                 <!-- madurezImagen: "Imagenes/Palta.png", -->
@@ -265,15 +265,15 @@
             <!-- }, -->
             platano: {
                 nombre: "Plátano",
-                imagen: "Imagenes/Platano.png",
+                imagen: "Imagenes/PlatanoL.png",
                 origen: "Región del Maule, Chile",
                 nutricion: {
-                    calorias: 89,
-                    carbohidratos: 22.8,
-                    proteinas: 1.1,
+                    energía: 91,
+                    carbohidratos: 23.4,
+                    proteinas: 1,
                     grasas: 0.3,
-                    fibra: 2.6,
-                    azucar: 12.2,
+                    fibra: 1.6,
+                    lipidos: 0.4,
                     vitaminaC: 8.7
                 },
                 madurezImagen: "Imagenes/Platano.png",
@@ -282,15 +282,15 @@
             },
             pimenton: {
                 nombre: "Pimentón",
-                imagen: "Imagenes/Pimenton.png",
+                imagen: "Imagenes/PimentonL.png",
                 origen: "Región Metropolitana, Chile",
                 nutricion: {
-                    calorias: 31,
-                    carbohidratos: 6,
-                    proteinas: 1,
+                    energía: 27,
+                    carbohidratos: 6.4,
+                    proteinas: 0.9,
                     grasas: 0.3,
-                    fibra: 2.1,
-                    azucar: 4.2,
+                    fibra: 1.6,
+                    lipidos: 0.2,
                     vitaminaC: 127.7
                 },
                 madurezImagen: "Imagenes/Pimenton.png",
@@ -299,15 +299,15 @@
             },
             pera: {
                 nombre: "Pera",
-                imagen: "Imagenes/Pera.png",
+                imagen: "Imagenes/PeraL.png",
                 origen: "Región de O'Higgins, Chile",
                 nutricion: {
-                    calorias: 57,
-                    carbohidratos: 15,
+                    energía: 59,
+                    carbohidratos: 15.1,
                     proteinas: 0.4,
                     grasas: 0.1,
-                    fibra: 3.1,
-                    azucar: 10,
+                    fibra: 3.8,
+                    lipidos: 0.4,
                     vitaminaC: 4.3
                 },
                 madurezImagen: "Imagenes/Pera.png",
@@ -316,15 +316,15 @@
             },
             tomate: {
                 nombre: "Tomate",
-                imagen: "Imagenes/Tomate.png",
+                imagen: "Imagenes/TomateL.png",
                 origen: "Región de Valparaíso, Chile",
                 nutricion: {
-                    calorias: 18,
-                    carbohidratos: 3.9,
+                    energía: 21,
+                    carbohidratos: 4.6,
                     proteinas: 0.9,
                     grasas: 0.2,
-                    fibra: 1.2,
-                    azucar: 2.6,
+                    fibra: 0.9,
+                    lipidos: 0.3,
                     vitaminaC: 13.7
                 },
                 madurezImagen: "Imagenes/Tomate.png",
@@ -377,8 +377,8 @@
                 // Generar tabla nutricional
                 document.getElementById('nutrition-data').innerHTML = `
                     <tr>
-                        <th>Calorías</th>
-                        <td>${(product.nutricion.calorias * factor).toFixed(1)} kcal</td>
+                        <th>Energía</th>
+                        <td>${(product.nutricion.energía * factor).toFixed(1)} Kcal</td>
                     </tr>
                     <tr>
                         <th>Carbohidratos</th>
@@ -388,22 +388,22 @@
                         <th>Proteínas</th>
                         <td>${(product.nutricion.proteinas * factor).toFixed(1)}g</td>
                     </tr>
-                    <tr>
-                        <th>Grasas</th>
-                        <td>${(product.nutricion.grasas * factor).toFixed(1)}g</td>
-                    </tr>
+                    <!-- <tr> -->
+                        <!-- <th>Grasas</th> -->
+                        <!-- <td>${(product.nutricion.grasas * factor).toFixed(1)}g</td> -->
+                    <!-- </tr> -->
                     <tr>
                         <th>Fibra</th>
                         <td>${(product.nutricion.fibra * factor).toFixed(1)}g</td>
                     </tr>
                     <tr>
-                        <th>Azúcares</th>
-                        <td>${(product.nutricion.azucar * factor).toFixed(1)}g</td>
+                        <th>Lípidos</th>
+                        <td>${(product.nutricion.lipidos * factor).toFixed(1)}g</td>
                     </tr>
-                    <tr>
-                        <th>Vitamina C</th>
-                        <td>${(product.nutricion.vitaminaC * factor).toFixed(1)}mg</td>
-                    </tr>
+                    <!-- <tr> -->
+                        <!-- <th>Vitamina C</th> -->
+                        <!-- <td>${(product.nutricion.vitaminaC * factor).toFixed(1)}mg</td> -->
+                    <!-- </tr> -->
                 `;
             }
         }
