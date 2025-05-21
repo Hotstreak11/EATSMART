@@ -13,13 +13,6 @@
     
     <style>
         /* Estilos consistentes con el resto del sitio */
-        body {
-            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-        }
-        
         .navbar-logo {
             height: 40px;
             transition: transform 0.3s;
@@ -27,69 +20,28 @@
         .navbar-logo:hover {
             transform: scale(1.1);
         }
-        
         .hero-section {
             background: linear-gradient(135deg, #28a745, #218838);
             color: white;
-            padding: 3rem 0;
+            padding: 4rem 0;
         }
-        
         .mission-card {
             border-left: 4px solid #28a745;
             transition: all 0.3s ease;
-            height: 100%;
         }
         .mission-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 20px rgba(0,0,0,0.1);
         }
-        
         .team-img {
             width: 150px;
             height: 150px;
             object-fit: cover;
             border: 3px solid #28a745;
         }
-        
         .value-icon {
             font-size: 2rem;
             color: #28a745;
-        }
-        
-        /* Ajustes responsive */
-        @media (max-width: 768px) {
-            .hero-section {
-                padding: 2rem 0;
-            }
-            
-            .display-4 {
-                font-size: 2.5rem;
-            }
-            
-            .team-img {
-                width: 120px;
-                height: 120px;
-            }
-            
-            .img-fluid {
-                margin-left: 0 !important;
-                margin-bottom: 2rem;
-            }
-        }
-        
-        @media (max-width: 576px) {
-            .hero-section {
-                padding: 1.5rem 0;
-            }
-            
-            .display-4 {
-                font-size: 2rem;
-            }
-            
-            .team-img {
-                width: 100px;
-                height: 100px;
-            }
         }
     </style>
 </head>
@@ -97,86 +49,96 @@
 <body>
     <!-- Barra de navegación -->
     <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
-        <div class="container px-4 px-lg-5">
+        <div class="container-fluid px-4 px-lg-5">
             <a class="navbar-brand d-flex align-items-center" href="index.html">
                 <img src="Imagenes/IndexLogo.png" alt="EATSMART" class="navbar-logo me-2">
                 <span class="fw-bold text-success">EATSMART</span>
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
-                    <li class="nav-item"><a class="nav-link" href="etiqueta.html">Etiqueta</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="quienesSomos.html">Quienes Somos</a></li>
-                    <li class="nav-item"><a class="nav-link" href="calculadora.html">Calculadora</a></li>
-                </ul>
+					<li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+					<li class="nav-item"><a class="nav-link" href="etiqueta.html">Etiqueta</a></li>
+					<li class="nav-item"><a class="nav-link active" href="quienesSomos.html">Quienes Somos</a></li>
+					<li class="nav-item"><a class="nav-link" href="calculadora.html">Calculadora</a></li>
+						</ul>
             </div>
         </div>
     </nav>
 
     <!-- Sección Hero -->
     <section class="hero-section">
-        <div class="container px-4 px-lg-5 text-center">
+        <div class="container-fluid px-4 px-lg-5 text-center">
             <h1 class="display-4 fw-bold mb-3">Conoce EATSMART</h1>
-            <p class="lead mb-0">Innovando en información alimentaria para un consumo consciente</p>
+            <p class="lead">Innovando en información alimentaria para un consumo consciente</p>
         </div>
     </section>
 
     <!-- Sección Nuestra Historia -->
     <section class="py-5">
-        <div class="container px-4 px-lg-5">
+        <div class="container-fluid px-4 px-lg-5">
             <div class="row align-items-center">
-                <div class="col-lg-6 order-lg-1 order-2">
+                <div class="col-lg-6">
                     <h2 class="fw-bold mb-4"><i class="bi bi-book feature-icon me-2"></i>Nuestra Historia</h2>
                     <p class="lead">Fundada en 2025, EATSMART nació de la necesidad de brindar transparencia en el consumo de alimentos frescos.</p>
                     <p>Somos un equipo de ingenieros y nutricionistas comprometidos con reducir el desperdicio de alimentos y promover hábitos alimenticios saludables mediante tecnología accesible.</p>
                     <p>Nuestro proyecto comenzó como una iniciativa universitaria y hoy se ha convertido en una solución adoptada por productores y consumidores conscientes.</p>
                 </div>
-                <div class="col-lg-6 order-lg-2 order-1 text-center">
-                    <img src="Imagenes/QuienLogo.png" alt="Equipo EATSMART" 
-                        class="img-fluid rounded shadow" 
-                        style="max-width: 100%">
+				
+                <!-- <div class="col-lg-6"> -->
+                    <!-- <img src="Imagenes/QuienLogo.png" alt="Equipo EATSMART"  -->
+						<!-- class="img-fluid"  -->
+						<!-- style="max-width: 500px; margin-left: 170px;"> -->
+                <!-- </div> -->
+				
+				<div class="col-lg-6 d-flex align-items-center justify-content-center">
+                <div class="text-center">
+                    <img src="Imagenes/QuienLogo.png" alt="Logo EATSMART" class="etiqueta-img" style="max-width: 400px;">
                 </div>
+            </div>
+				
+				
+				
             </div>
         </div>
     </section>
 
     <!-- Sección Misión, Visión, Valores -->
     <section class="py-5 bg-light">
-        <div class="container px-4 px-lg-5">
+        <div class="container-fluid px-4 px-lg-5">
             <h2 class="text-center fw-bold mb-5">Nuestros Pilares</h2>
             <div class="row g-4">
                 <div class="col-md-4">
-                    <div class="mission-card p-4 bg-white rounded shadow-sm">
+                    <div class="h-100 p-4 mission-card bg-white rounded shadow-sm">
                         <div class="text-center mb-3">
                             <i class="bi bi-bullseye value-icon"></i>
                         </div>
-                        <h3 class="text-center h4">Misión</h3>
+                        <h3 class="text-center">Misión</h3>
                         <p class="text-center">Empoderar a los consumidores con información accesible sobre sus alimentos, promoviendo decisiones de compra informadas y reduciendo el desperdicio alimentario.</p>
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <div class="mission-card p-4 bg-white rounded shadow-sm">
+                    <div class="h-100 p-4 mission-card bg-white rounded shadow-sm">
                         <div class="text-center mb-3">
                             <i class="bi bi-eye value-icon"></i>
                         </div>
-                        <h3 class="text-center h4">Visión</h3>
+                        <h3 class="text-center">Visión</h3>
                         <p class="text-center">Ser el estándar en etiquetado inteligente para alimentos frescos a nivel global, contribuyendo a sistemas alimentarios más sostenibles y transparentes.</p>
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <div class="mission-card p-4 bg-white rounded shadow-sm">
+                    <div class="h-100 p-4 mission-card bg-white rounded shadow-sm">
                         <div class="text-center mb-3">
                             <i class="bi bi-heart value-icon"></i>
                         </div>
-                        <h3 class="text-center h4">Valores</h3>
+                        <h3 class="text-center">Valores</h3>
                         <ul class="list-unstyled text-center">
-                            <li class="mb-2">• Transparencia</li>
-                            <li class="mb-2">• Innovación</li>
-                            <li class="mb-2">• Sostenibilidad</li>
-                            <li class="mb-2">• Accesibilidad</li>
+                            <li class="mb-2">Transparencia</li>
+                            <li class="mb-2">Innovación</li>
+                            <li class="mb-2">Sostenibilidad</li>
+                            <li class="mb-2">Accesibilidad</li>
                         </ul>
                     </div>
                 </div>
@@ -186,50 +148,51 @@
 
     <!-- Sección Equipo -->
     <section class="py-5">
-        <div class="container px-4 px-lg-5">
+        <div class="container-fluid px-4 px-lg-5">
             <h2 class="text-center fw-bold mb-5">Nuestro Equipo</h2>
             <div class="row g-4 justify-content-center">
-                <div class="col-sm-6 col-md-4 col-lg-3 text-center">
-                    <img src="Imagenes/team1.jpg" alt="Fundador" class="rounded-circle team-img mb-3 shadow">
-                    <h4 class="h5">Daniel Arancibia</h4>
-                    <p class="text-muted small">Fundador & CEO</p>
-                    <p class="small">Ingeniero Civil Industrial especializado en innovación alimentaria.</p>
+                <div class="col-md-4 col-lg-3 text-center">
+                    <img src="Imagenes/team1.jpg" alt="Fundador" class="rounded-circle team-img mb-3">
+                    <h4>Daniel Arancibia</h4>
+                    <p class="text-muted">Fundador & CEO</p>
+                    <p>Ingeniero Civil Industrial especializado en innovación alimentaria.</p>
                 </div>
-                
-                <div class="col-sm-6 col-md-4 col-lg-3 text-center">
-                    <img src="Imagenes/team1.jpg" alt="Fundador" class="rounded-circle team-img mb-3 shadow">
-                    <h4 class="h5">Robinson Anfossi</h4>
-                    <p class="text-muted small">Fundador & CEO</p>
-                    <p class="small">Ingeniero Civil Industrial especializado en innovación alimentaria.</p>
+				
+				<div class="col-md-4 col-lg-3 text-center">
+                    <img src="Imagenes/team1.jpg" alt="Fundador" class="rounded-circle team-img mb-3">
+                    <h4>Robinson Anfossi</h4>
+                    <p class="text-muted">Fundador & CEO</p>
+                    <p>Ingeniero Civil Industrial especializado en innovación alimentaria.</p>
                 </div>
-                
-                <div class="col-sm-6 col-md-4 col-lg-3 text-center">
-                    <img src="Imagenes/team1.jpg" alt="Fundador" class="rounded-circle team-img mb-3 shadow">
-                    <h4 class="h5">Nicolas Peralta</h4>
-                    <p class="text-muted small">Fundador & CEO</p>
-                    <p class="small">Ingeniero Civil Industrial especializado en innovación alimentaria.</p>
+				
+				<div class="col-md-4 col-lg-3 text-center">
+                    <img src="Imagenes/team1.jpg" alt="Fundador" class="rounded-circle team-img mb-3">
+                    <h4>Nicolas Peralta</h4>
+                    <p class="text-muted">Fundador & CEO</p>
+                    <p>Ingeniero Civil Industrial especializado en innovación alimentaria.</p>
                 </div>
-                
-                <div class="col-sm-6 col-md-4 col-lg-3 text-center">
-                    <img src="Imagenes/team2.jpg" alt="Coordinadora" class="rounded-circle team-img mb-3 shadow">
-                    <h4 class="h5">Juan Nuñez</h4>
-                    <p class="text-muted small">Coordinador Gei</p>
-                    <p class="small">Ingeniero Civil Industrial especializado en innovación alimentaria.</p>
+				
+                <div class="col-md-4 col-lg-3 text-center">
+                    <img src="Imagenes/team2.jpg" alt="Coordinadora" class="rounded-circle team-img mb-3">
+                    <h4>Juan Nuñez</h4>
+                    <p class="text-muted">Coordinador Gei</p>
+                    <p>Ingeniero Civil Industrial especializado en innovación alimentaria.</p>
                 </div>
-                
-                <div class="col-sm-6 col-md-4 col-lg-3 text-center">
-                    <img src="Imagenes/team3.jpg" alt="Desarrollador" class="rounded-circle team-img mb-3 shadow">
-                    <h4 class="h5">Damian Blanco</h4>
-                    <p class="text-muted small">Líder de Tecnología</p>
-                    <p class="small">Ingeniero Civil Industrial especializado en innovación alimentaria.</p>
+				
+                <div class="col-md-4 col-lg-3 text-center">
+                    <img src="Imagenes/team3.jpg" alt="Desarrollador" class="rounded-circle team-img mb-3">
+                    <h4>Damian Blanco</h4>
+                    <p class="text-muted">Líder de Tecnología</p>
+                    <p>Ingeniero Civil Industrial especializado en innovación alimentaria.</p>
                 </div>
             </div>
         </div>
     </section>
 
+
     <!-- Footer -->
     <footer class="bg-dark text-white mt-auto">
-        <div class="container px-4 px-lg-5 py-4">
+        <div class="container-fluid px-4 px-lg-5 py-5">
             <div class="text-center small text-white-50">
                 © 2025 EATSMART. Todos los derechos reservados.
             </div>
