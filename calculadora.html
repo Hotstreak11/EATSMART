@@ -60,6 +60,38 @@
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
         
+        .maturity-section {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid #eee;
+        }
+        
+        .maturity-image-container {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        
+        .maturity-image {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            margin-bottom: 15px;
+        }
+        
+        .color-scale-image {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        
+        .image-caption {
+            text-align: center;
+            font-size: 0.9rem;
+            color: #6c757d;
+            margin-top: 5px;
+            margin-bottom: 20px;
+        }
+        
         /* Responsive adjustments */
         @media (max-width: 992px) {
             #producto-imagen {
@@ -121,9 +153,12 @@
                         <label for="product-select" class="form-label">Selecciona un producto:</label>
                         <select class="form-select" id="product-select" onchange="updateProductInfo()">
                             <option value="">-- Elegir fruta/verdura --</option>
-                            <option value="manzana">Manzana Fuji</option>
-                            <option value="aguacate">Aguacate Hass</option>
-                            <!-- Añadir más opciones aquí -->
+                            <option value="manzana">Manzana</option>
+                            <option value="aguacate">Palta Hass</option>
+                            <option value="platano">Plátano</option>
+                            <option value="pimenton">Pimentón</option>
+                            <option value="pera">Pera</option>
+                            <option value="tomate">Tomate</option>
                         </select>
                     </div>
                     
@@ -161,6 +196,18 @@
                                 </div>
                             </div>
                         </div>
+                        
+                        <!-- Sección de Estado de Madurez -->
+                        <div class="maturity-section">
+                            <h3 class="text-center mb-4"><i class="bi bi-arrow-down-up"></i> Estado de Madurez</h3>
+                            <div class="maturity-image-container">
+                                <img id="maturity-image" src="Imagenes/madurez-ejemplo.jpg" alt="Estado de madurez del producto" class="maturity-image">
+                                
+                                <img id="maturity-scale-image" src="Imagenes/escala-colores-madurez.png" alt="Escala de colores de madurez" class="color-scale-image">
+                                <p class="image-caption">Escala de referencia de madurez</p>
+                            </div>
+                            <p id="maturity-description" class="text-center mt-3 text-muted">Selecciona un producto para ver su estado óptimo de madurez</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -183,7 +230,7 @@
         // Base de datos de productos
         const productsDB = {
             manzana: {
-                nombre: "Manzana Fuji",
+                nombre: "Manzana",
                 imagen: "Imagenes/Manzana.png",
                 origen: "Región de O'Higgins, Chile",
                 nutricion: {
@@ -194,10 +241,13 @@
                     fibra: 2.4,
                     azucar: 10.4,
                     vitaminaC: 4.6
-                }
+                },
+                madurezImagen: "Imagenes/Madurez, Manzana.png",
+                escalaMadurez: "Imagenes/MadurezManza.png",
+                madurezDescripcion: "La manzana Fuji en su punto óptimo tiene un color rojo intenso con toques amarillos y una textura firme pero jugosa."
             },
             aguacate: {
-                nombre: "Aguacate Hass",
+                nombre: "Palta Hass",
                 imagen: "Imagenes/Palta.png",
                 origen: "Región de Valparaíso, Chile",
                 nutricion: {
@@ -208,9 +258,79 @@
                     fibra: 6.7,
                     azucar: 0.7,
                     vitaminaC: 10
-                }
+                },
+                madurezImagen: "Imagenes/Palta.png",
+                escalaMadurez: "Imagenes/MadurezPalta.png",
+                madurezDescripcion: "El aguacate Hass maduro tiene la piel de color negro oscuro y cede ligeramente a la presión suave."
+            },
+            platano: {
+                nombre: "Plátano",
+                imagen: "Imagenes/Platano.png",
+                origen: "Región del Maule, Chile",
+                nutricion: {
+                    calorias: 89,
+                    carbohidratos: 22.8,
+                    proteinas: 1.1,
+                    grasas: 0.3,
+                    fibra: 2.6,
+                    azucar: 12.2,
+                    vitaminaC: 8.7
+                },
+                madurezImagen: "Imagenes/Platano.png",
+                escalaMadurez: "Imagenes/MadurezPlatano.png",
+                madurezDescripcion: "El plátano en su punto óptimo tiene cáscara amarilla con pequeñas manchas marrones y textura firme pero no dura."
+            },
+            pimenton: {
+                nombre: "Pimentón",
+                imagen: "Imagenes/Pimenton.png",
+                origen: "Región Metropolitana, Chile",
+                nutricion: {
+                    calorias: 31,
+                    carbohidratos: 6,
+                    proteinas: 1,
+                    grasas: 0.3,
+                    fibra: 2.1,
+                    azucar: 4.2,
+                    vitaminaC: 127.7
+                },
+                madurezImagen: "Imagenes/Pimenton.png",
+                escalaMadurez: "Imagenes/MadurezPimenton.png",
+                madurezDescripcion: "El pimentón maduro tiene un color intenso (rojo, amarillo o verde según variedad), piel brillante y textura firme."
+            },
+            pera: {
+                nombre: "Pera",
+                imagen: "Imagenes/Pera.png",
+                origen: "Región de O'Higgins, Chile",
+                nutricion: {
+                    calorias: 57,
+                    carbohidratos: 15,
+                    proteinas: 0.4,
+                    grasas: 0.1,
+                    fibra: 3.1,
+                    azucar: 10,
+                    vitaminaC: 4.3
+                },
+                madurezImagen: "Imagenes/Pera.png",
+                escalaMadurez: "Imagenes/MadurezPera.png",
+                madurezDescripcion: "La pera madura cede ligeramente al presionar cerca del tallo y tiene un aroma dulce característico."
+            },
+            tomate: {
+                nombre: "Tomate",
+                imagen: "Imagenes/Tomate.png",
+                origen: "Región de Valparaíso, Chile",
+                nutricion: {
+                    calorias: 18,
+                    carbohidratos: 3.9,
+                    proteinas: 0.9,
+                    grasas: 0.2,
+                    fibra: 1.2,
+                    azucar: 2.6,
+                    vitaminaC: 13.7
+                },
+                madurezImagen: "Imagenes/Tomate.png",
+                escalaMadurez: "Imagenes/MadurezTomate.png",
+                madurezDescripcion: "El tomate maduro tiene un color rojo uniforme, piel lisa y cede ligeramente al tacto sin estar blando."
             }
-            // Añadir más productos aquí
         };
 
         // Actualizar información del producto seleccionado
@@ -226,12 +346,21 @@
                 document.getElementById('product-name').textContent = product.nombre;
                 document.getElementById('product-origin').textContent = product.origen;
                 
+                // Mostrar imágenes de madurez y escala
+                document.getElementById('maturity-image').src = product.madurezImagen;
+                document.getElementById('maturity-scale-image').src = product.escalaMadurez;
+                document.getElementById('maturity-description').textContent = product.madurezDescripcion;
+                
                 // Mostrar sección de resultados
                 productInfo.style.display = 'block';
                 
                 // Calcular automáticamente
                 calculateNutrition();
             } else {
+                // Restablecer a valores por defecto cuando no hay producto seleccionado
+                document.getElementById('maturity-image').src = "Imagenes/madurez-ejemplo.jpg";
+                document.getElementById('maturity-scale-image').src = "Imagenes/escala-colores-madurez.png";
+                document.getElementById('maturity-description').textContent = "Selecciona un producto para ver su estado óptimo de madurez";
                 productInfo.style.display = 'none';
             }
         }
